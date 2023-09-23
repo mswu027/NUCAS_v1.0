@@ -1,0 +1,16 @@
+ site points check           1
+  ******** BEPS Time Manager Configuration ********
+   Calendar type:            GREGORIAN
+   Timestep size (seconds):          3600
+   Start date (yr mon day tod):             2013           6          16           0
+   Stop date (yr mon day tod):              2013           7           2           0
+   Reference date (yr mon day tod):         2013           6          16           0
+   Current step number:                 0
+   Ending step number:         -999999999
+   Current date (yr mon day tod):           2013           6          16           0
+  ************************************************
+ BEPS run at site scale!
+ START read_boundary_site with *****/home/michael/work/iLab-svn/projects/beps/export/bepspkg_2022-07-14T152453UTC/inputdata/beps_site/FI_Hyy_boundary.nc*****
+ lai is input!
+ restart file on            0
+ BEPS run finished successfully!

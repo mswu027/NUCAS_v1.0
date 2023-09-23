@@ -1,0 +1,210 @@
+#-----------------------------------------------------------------------
+# This Makefile is for building clm tools on AIX, Linux (with pgf90 or 
+# lf95 compiler), Darwin or IRIX platforms.
+#
+# These macros can be changed by setting environment variables:
+#
+# LIB_NETCDF --- Library directory location of netcdf. (defaults to /usr/local/lib)
+# INC_NETCDF --- Include directory location of netcdf. (defaults to /usr/local/include)
+# MOD_NETCDF --- Module directory location of netcdf.  (defaults to $LIB_NETCDF)
+# USER_FC ------ Allow user to override the default Fortran compiler specified in Makefile.
+# USER_FCTYP --- Allow user to override the default type of Fortran compiler (linux and USER_FC=ftn only).
+# USER_CC ------ Allow user to override the default C compiler specified in Makefile (linux only).
+# USER_LINKER -- Allow user to override the default linker specified in Makefile.
+# USER_CPPDEFS - Additional CPP defines.
+# USER_CFLAGS -- Additional C compiler flags that the user wishes to set.
+# USER_FFLAGS -- Additional Fortran compiler flags that the user wishes to set.
+# USER_LDLAGS -- Additional load flags that the user wishes to set.
+# SMP ---------- Shared memory Multi-processing (TRUE or FALSE) [default is FALSE]
+# OPT ---------- Use optimized options.
+#
+#------------------------------------------------------------------------
+
+# exename
+EXENAME = beps
+
+# Set up special characters
+null  :=
+
+# Newer makes set the CURDIR variable.
+CURDIR := $(shell pwd)
+
+HOST := $(shell hostname)
+
+# platform: invoke with PLATFORM=iLab to run package on iLab computer
+PLATFORM =
+ifeq ($(HOST),ilabdesk)
+  PLATFORM = iLab
+else ifeq ($(HOST),ilabpower)
+  PLATFORM = iLab
+else ifeq ($(HOST),mvobook)
+  PLATFORM = iLab
+else ifeq ($(HOST),txkbook2)
+  PLATFORM = iLab
+endif
+
+RM = rm
+
+# Check for the netcdf library and include directories 
+#  NETCDFDIR  := /software/netcdf-3.6.3-intel
+#  NETCDFDIR  := /data/home/mousong/BEPS_folder/software
+ifeq ($(PLATFORM),iLab)
+  LIB_NETCDF := /usr/lib64
+  INC_NETCDF := /usr/include
+  MOD_NETCDF := /usr/include
+  MPIDIR     := /usr/local
+  INC_MPI    :=$(MPIDIR)/include
+  LIB_MPI    :=$(MPIDIR)/lib
+else
+  NETCDFDIR  := /public1/home/sc30439/zhaoyq-netcdf/install 
+  LIB_NETCDF := /public1/home/sc30439/zhaoyq-netcdf/install/lib
+  INC_NETCDF := /public1/home/sc30439/zhaoyq-netcdf/install/include
+  MOD_NETCDF := /public1/home/sc30439/zhaoyq-netcdf/install/include
+  MPIDIR     :=/public1/soft/mpich2/1.0.8
+  INC_MPI    :=$(MPIDIR)/include
+  LIB_MPI    :=$(MPIDIR)/lib
+#   NETCDFDIR  := /public1/home/sc30439/zhaoyq-netcdf/install
+#   LIB_NETCDF := $(NETCDFDIR)/lib
+#   INC_NETCDF := $(NETCDFDIR)/include
+#   MOD_NETCDF := $(LIB_NETCDF)
+
+# # Setting MPI
+# #  MPIDIR     :=/share/apps/intel/impi/2017.1.132
+# #  MPIDIR     :=/software/mpich2-1.5-intel
+#   MPIDIR     :=/public1/soft/mpich2/1.0.8
+#   INC_MPI    :=$(MPIDIR)/include
+#   LIB_MPI    :=$(MPIDIR)/lib
+endif
+
+# setting esmf
+# ESMFDIR    :=./esmf_wrf_timemgr/unittests
+  ESMFDIR    :=
+# Set user specified Fortran compiler
+  FC := gfortran
+
+# Set user specified C compiler
+  CC := gcc
+
+# Set if Shared memory multi-processing will be used
+ifeq ($(SMP),$(null))
+  SMP := FALSE
+endif
+
+CPPDEF := cpp
+
+# Set optimization on by default
+ifeq ($(OPT),$(null))
+  OPT := TRUE
+endif
+
+ifeq ($(OPT),TRUE)
+  CPPDEF := -DOPT
+endif
+
+# Determine platform 
+UNAMES := $(shell uname -s)
+
+# Load dependency search path.
+dirs := . $(shell cat Filepath)
+
+# Set cpp search path, include netcdf
+cpp_dirs := $(dirs) $(INC_NETCDF) $(MOD_NETCDF) $(INC_MPI) $(LIB_MPI)
+cpp_path := $(foreach dir,$(cpp_dirs),-I$(dir)) # format for command line
+
+# Expand any tildes in directory names. Change spaces to colons.
+# (the vpath itself is set elsewhere, based on this variable)
+vpath_dirs    := $(foreach dir,$(cpp_dirs),$(wildcard $(dir))) 
+vpath_dirs    := $(subst $(space),:,$(vpath_dirs)) 
+
+#Primary Target: build the tool
+all: $(EXENAME)
+
+# Get list of files and build dependency file for all .o files
+#   using perl scripts mkSrcfiles and mkDepends
+
+SOURCES   := $(shell cat Srcfiles)
+
+OBJS      := $(addsuffix .o, $(basename $(SOURCES)))
+
+# Set path to Mkdepends script; assumes that any Makefile including
+# this file is in a sibling of the src directory, in which Mkdepends
+# resides
+Mkdepends := ./Mkdepends
+
+$(CURDIR)/Depends: $(CURDIR)/Srcfiles $(CURDIR)/Filepath
+	$(Mkdepends) Filepath Srcfiles > $@
+
+
+# Architecture-specific flags and rules
+#------------------------------------------------------------------------
+# Linux
+#------------------------------------------------------------------------
+DBG = 0
+
+ifeq ($(UNAMES),Linux)
+  CPPDEF += -DLINUX -DFORTRANUNDERSCORE
+  CFLAGS := $(CPPDEF)
+  FFLAGS :=
+  LDFLAGS := $(shell $(LIB_NETCDF)/../bin/nf-config --flibs)
+
+#  FFLAGS      += -O2 -c -r8 -i4 -132 -convert big_endian -assume byterecl
+  FFLAGS      += -c -fdefault-real-8
+  ifeq ($(DBG),1)
+    FFLAGS += -g -Og -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -ffpe-trap=invalid,zero,overflow,underflow
+  else
+    FFLAGS += -O2
+  endif
+#  FFLAGS      += -O2 -c
+  CFLAGS      += -m64 -g
+  LDFLAGS     += -m64
+
+  FFLAGS += -I$(INC_NETCDF) -I$(INC_MPI) -I$(ESMFDIR) -L$(LIB_NETCDF) -L$(LIB_MPI) -L$(ESMFDIR) \
+             $(CPPDEF) $(cpp_path) -lnetcdff -lnetcdf -lesmf_time
+  CFLAGS += $(cpp_path)
+endif
+
+#------------------------------------------------------------------------
+# Default rules and macros
+#------------------------------------------------------------------------
+
+.SUFFIXES:
+.SUFFIXES: .F90 .c .o
+
+# Set the vpath for all file types EXCEPT .o
+# We do this for individual file types rather than generally using
+# VPATH, because for .o files, we don't want to use files from a
+# different build (e.g., in building the unit tester, we don't want to
+# use .o files from the main build)
+vpath %.F90 $(vpath_dirs)
+vpath %.c $(vpath_dirs)
+vpath %.h $(vpath_dirs)
+
+# Append user defined compiler and load flags to Makefile defaults
+CFLAGS   += $(USER_CFLAGS)
+FFLAGS   += $(USER_FFLAGS)
+LDFLAGS  += $(USER_LDFLAGS)
+
+# Set user specified linker
+ifneq ($(USER_LINKER),$(null))
+  LINKER := $(USER_LINKER)
+else
+  LINKER := $(FC)
+endif
+
+.F90.f90:
+	$(FC) $(CPPDEF) $<
+
+.F90.o:
+	$(FC) $(FFLAGS) $<
+
+.c.o:
+	$(CC) -c $(CFLAGS) $<
+
+
+$(EXENAME): $(OBJS)
+	$(LINKER) -o $@ $(OBJS) $(LDFLAGS)
+
+clean:
+	$(RM) -f $(OBJS) *.mod Depends
+
+include $(CURDIR)/Depends

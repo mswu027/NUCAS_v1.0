@@ -1,0 +1,183 @@
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   runsimobs.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   shr_kind_mod.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   aerodynamic_conductance.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   beps_con.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   meteoMod.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   beps_par.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   mid_results.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   AnGsMod.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   cos_plant.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   beps_soilMod.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   cos_grnd.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   beps_helper.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   beps_phenology.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   ESMF_BaseMod.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   ESMF_BaseTimeMod.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   ESMF_CalendarMod.f90
+ESMF_CalendarMod.f90:454:18:
+
+  454 |   ndayinyearsec = ( tmpbasetime%S / 86400_ESMF_KIND_I8 ) + 1
+      |                  1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   ESMF_ShrTimeMod.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   ESMF_FractionMod.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   ESMF_TimeIntervalMod.f90
+ESMF_TimeIntervalMod.f90:1653:17:
+
+ 1653 |     timeInt%YR = timeInt%YR + timeInt%MM/12_ESMF_KIND_I8
+      |                 1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeIntervalMod.f90:1661:21:
+
+ 1661 |         timeInt%MM = timeInt%MM + 12_ESMF_KIND_I8
+      |                     1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeIntervalMod.f90:1665:21:
+
+ 1665 |         timeInt%MM = timeInt%MM - 12_ESMF_KIND_I8
+      |                     1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeIntervalMod.f90:439:13:
+
+  439 |         YY = years + timeinterval%MM / 12_ESMF_KIND_I8
+      |             1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeIntervalMod.f90:448:13:
+
+  448 |         MM = timeinterval%MM + years*12
+      |             1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeIntervalMod.f90:521:12:
+
+  521 |         D = seconds / 86400_ESMF_KIND_I8
+      |            1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeIntervalMod.f90:522:35:
+
+  522 |         IF ( PRESENT(S) )   S    = mod( seconds, 86400_ESMF_KIND_I8 )
+      |                                   1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeIntervalMod.f90:525:35:
+
+  525 |         IF ( PRESENT(S) )   S    = seconds
+      |                                   1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeIntervalMod.f90:549:13:
+
+  549 |         Sn = timeinterval%basetime%Sn
+      |             1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeIntervalMod.f90:552:13:
+
+  552 |         Sd = timeinterval%basetime%Sd
+      |             1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   ESMF_Stubs.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   ESMF_TimeMod.f90
+ESMF_TimeMod.f90:1473:1:
+
+ 1473 |         retval )
+      | 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+ESMF_TimeMod.f90:462:14:
+
+  462 |           d = cnt
+      |              1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeMod.f90:471:12:
+
+  471 |         H = mod( time%basetime%S, 86400_ESMF_KIND_I8 ) / 3600_ESMF_KIND_I8
+      |            1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeMod.f90:474:12:
+
+  474 |         M = mod( time%basetime%S, 3600_ESMF_KIND_I8) / 60_ESMF_KIND_I8
+      |            1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeMod.f90:477:12:
+
+  477 |         S = mod( time%basetime%S, 60_ESMF_KIND_I8 )
+      |            1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeMod.f90:482:14:
+
+  482 |           S = mod( time%basetime%S, 86400_ESMF_KIND_I8 )
+      |              1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeMod.f90:493:13:
+
+  493 |         Sd = time%basetime%Sd
+      |             1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeMod.f90:494:13:
+
+  494 |         Sn = time%basetime%Sn
+      |             1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeMod.f90:506:15:
+
+  506 |         hour = mod( time%basetime%S, 86400_ESMF_KIND_I8 ) / 3600_ESMF_KIND_I8
+      |               1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeMod.f90:507:17:
+
+  507 |         minute = mod( time%basetime%S, 3600_ESMF_KIND_I8) / 60_ESMF_KIND_I8
+      |                 1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeMod.f90:508:17:
+
+  508 |         second = mod( time%basetime%S, 60_ESMF_KIND_I8 )
+      |                 1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+ESMF_TimeMod.f90:894:18:
+
+  894 |       DayOfYear = ( time%basetime%S / 86400_ESMF_KIND_I8 ) + 1
+      |                  1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   ESMF_AlarmMod.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   ESMF_ClockMod.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   ESMF_AlarmClockMod.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   MeatMod.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   ESMF.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   beps_time_manager.f90
+beps_time_manager.f90:812:15:
+
+  812 |    get_nstep = step_no
+      |               1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+beps_time_manager.f90:647:10:
+
+  647 |   nstep = step_no
+      |          1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   bepstype.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   bepstypeInit.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   controlInput_mod.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   ecoRespMod.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   endrun.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   get_CO2.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   get_COS.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   rainsnowMod.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   inter_prg.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   netRadiationMod.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   outputMod.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   readcoef.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   readparam.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   restart.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   retrive_soilp.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   s_coszs.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   SensibleHeat.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   wrf_error_fatal.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   wrf_message.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   mo_bepsfunc_ctl.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   mo_prior.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   bepsfunc_setup.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   bepsfunc.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   misfit.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   cost.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   obs.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   devprior.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   prior.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   woptimum.f90
+gfortran -c -Wall -Wno-unused -Wno-unused-parameter -Wno-unused-dummy-argument -fdefault-real-8 -g -O0 -fcheck=all -fbacktrace -finit-integer=-99999 -finit-real=snan -finit-derived -ffpe-trap=invalid,zero,overflow,underflow -I. -I/usr/include -I/usr/local/include   obs_netcdf.f90
+gfortran -o runsimobs.x runsimobs.o aerodynamic_conductance.o AnGsMod.o beps_con.o cos_plant.o cos_grnd.o beps_helper.o beps_par.o beps_phenology.o beps_soilMod.o beps_time_manager.o bepstype.o bepstypeInit.o controlInput_mod.o ecoRespMod.o endrun.o ESMF_AlarmClockMod.o ESMF_AlarmMod.o ESMF_BaseMod.o ESMF_BaseTimeMod.o ESMF_CalendarMod.o ESMF_ClockMod.o ESMF.o ESMF_FractionMod.o ESMF_ShrTimeMod.o ESMF_Stubs.o ESMF_TimeIntervalMod.o ESMF_TimeMod.o get_CO2.o get_COS.o inter_prg.o MeatMod.o meteoMod.o mid_results.o netRadiationMod.o outputMod.o rainsnowMod.o readcoef.o readparam.o restart.o retrive_soilp.o s_coszs.o SensibleHeat.o shr_kind_mod.o wrf_error_fatal.o wrf_message.o bepsfunc_setup.o bepsfunc.o mo_bepsfunc_ctl.o mo_prior.o misfit.o cost.o obs.o devprior.o prior.o woptimum.o obs_netcdf.o /usr/local/netcdff-v4.5.2-gfortran/lib64/libnetcdff.a -lnetcdf -ldl -lm -m64 -L/usr/local/netcdff-v4.5.2-gfortran -L/usr/local/lib -DOPT -DLINUX -DFORTRANUNDERSCORE -I. -I/usr/include -I/usr/local/include  -lnetcdff -lnetcdf 

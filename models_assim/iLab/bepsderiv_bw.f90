@@ -15951,8 +15951,8 @@ SUBROUTINE COS_GRND_BW(soilp, soilp_bw, cos_soil, cos_soil_bw)
   f_g = -(0.0119*soil_t*soil_t) + 0.110*soil_t - 1.18
   s_g = 35.0
   a = LOG(f_opt/f_g)*(LOG(s_opt/s_g)+(s_g/s_opt-1.))**(-1)
-  cos_soil_abiotic_bw = cos_soil_bw
-  cos_soil_biotic_bw = cos_soil_bw
+  cos_soil_abiotic_bw = -cos_soil_bw
+  cos_soil_biotic_bw = -cos_soil_bw
   temp0 = soil_s/s_opt
   temp1 = soil_s/s_opt
   temp2 = temp1**a

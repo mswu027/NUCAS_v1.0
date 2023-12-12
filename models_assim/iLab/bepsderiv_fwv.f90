@@ -14137,7 +14137,7 @@ SUBROUTINE COS_GRND_CDV(soilp, cos_soil)
   a = LOG(arg1)*(LOG(arg2)+(s_g/s_opt-1.))**(-1)
   arg1 = -(a*(soil_s/s_opt-1.))
   cos_soil_biotic = f_opt*(soil_s/s_opt)**a*EXP(arg1)
-  cos_soil = cos_soil_abiotic + cos_soil_biotic
+  cos_soil = -(cos_soil_abiotic + cos_soil_biotic)
 END SUBROUTINE COS_GRND_CDV
 
 SUBROUTINE BEPS_PHENOLOGY_CDV(lc, daylen, dt, theta, trans, lai)
@@ -17974,10 +17974,10 @@ SUBROUTINE COS_GRND_FWV(soilp, soilp_fw, cos_soil, cos_soil_fw, nbdirs)
   DO nd=1,nbdirs
     cos_soil_biotic_fw(nd) = f_opt*temp0*temp_fw(nd) + temp*(temp0*&
 &     f_opt_fw(nd)+f_opt*EXP(arg1)*arg1_fw(nd))
-    cos_soil_fw(nd) = cos_soil_abiotic_fw(nd) + cos_soil_biotic_fw(nd)
+    cos_soil_fw(nd) = -(cos_soil_abiotic_fw(nd) + cos_soil_biotic_fw(nd))
   END DO
   cos_soil_biotic = temp*(f_opt*temp0)
-  cos_soil = cos_soil_abiotic + cos_soil_biotic
+  cos_soil = -(cos_soil_abiotic + cos_soil_biotic)
 END SUBROUTINE COS_GRND_FWV
 
 !  Differentiation of beps_phenology in forward (tangent) mode (with options noISIZE r8 multiDirectional):

@@ -18537,7 +18537,7 @@ SUBROUTINE COS_GRND_CD(soilp, cos_soil)
   s_g = 35.0
   a = LOG(f_opt/f_g)*(LOG(s_opt/s_g)+(s_g/s_opt-1.))**(-1)
   cos_soil_biotic = f_opt*(soil_s/s_opt)**a*EXP(-(a*(soil_s/s_opt-1.)))
-  cos_soil = cos_soil_abiotic + cos_soil_biotic
+  cos_soil = -(cos_soil_abiotic + cos_soil_biotic)
 END SUBROUTINE COS_GRND_CD
 
 SUBROUTINE BEPS_PHENOLOGY_CD(lc, daylen, dt, theta, trans, lai)

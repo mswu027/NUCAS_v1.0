@@ -6520,6 +6520,7 @@ MODULE BEPS_SOILMOD_DIFFV
       REAL(r8) :: temp_soil_c(0:max_layers-1)
       REAL(r8) :: f_ice(0:max_layers-1)
       REAL(r8) :: psim(0:max_layers-1)
+      REAL(r8) :: psim_prev(0:max_layers-1)
       REAL(r8) :: thetab(0:max_layers-1)
       REAL(r8) :: psib(0:max_layers-1)
       REAL(r8) :: r_waterflow(0:max_layers-1)
@@ -6546,6 +6547,7 @@ MODULE BEPS_SOILMOD_DIFFV
       REAL(r8), DIMENSION(nbdirsmax, 0:max_layers-1) :: temp_soil_c
       REAL(r8), DIMENSION(nbdirsmax, 0:max_layers-1) :: f_ice
       REAL(r8), DIMENSION(nbdirsmax, 0:max_layers-1) :: psim
+      REAL(r8), DIMENSION(nbdirsmax, 0:max_layers-1) :: psim_prev
       REAL(r8), DIMENSION(nbdirsmax, 0:max_layers-1) :: thetab
       REAL(r8), DIMENSION(nbdirsmax, 0:max_layers-1) :: psib
       REAL(r8), DIMENSION(nbdirsmax, 0:max_layers-1) :: r_waterflow
@@ -6962,6 +6964,8 @@ CONTAINS
     p%thetam(4) = 1.15*ms
     p%thetam(5) = 1.25*ms
     p%thetam_prev(0:5) = p%thetam(0:5)
+    p%psim(0:5) = (/0.1,0.1,0.1,0.1,0.1,0.1/)
+    p%psim_prev(0:5) = p%psim(0:5)
 !-1
     DO i=0,p%n_layer
       IF (p%temp_soil_c(i) .LT. -1.0) THEN
@@ -7016,6 +7020,8 @@ CONTAINS
     p%thetam(4) = 1.15*ms
     p%thetam(5) = 1.25*ms
     p%thetam_prev(0:5) = p%thetam(0:5)
+    p%psim(0:5) = (/0.1,0.1,0.1,0.1,0.1,0.1/)
+    p%psim_prev(0:5) = p%psim(0:5)
 !-1
     DO i=0,p%n_layer
       IF (p%temp_soil_c(i) .LT. -1.0) THEN

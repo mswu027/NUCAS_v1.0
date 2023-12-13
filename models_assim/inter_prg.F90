@@ -726,7 +726,7 @@ end do       !END kkk iteration
 
     mid_res%GPP          = mid_res%gpp_o_sunlit+mid_res%gpp_u_sunlit+mid_res%gpp_o_shaded+mid_res%gpp_u_shaded
     mid_res%SIF          = SIF_o_sunlit+SIF_o_shaded+SIF_u_sunlit+SIF_u_shaded
-    mid_res%thetam_surf  = soilp%thetam(0)
+    mid_res%thetam_surf  = soilp%thetam_prev(0)
     mid_res%COS_plant    = COS_o_sunlit+COS_o_shaded+COS_u_sunlit+COS_u_shaded      ! pmol/m2/s
     mid_res%PWS          = soilp%Sp
     mid_res%ETa          = Eta
